@@ -1,0 +1,26 @@
+class bus
+	int capacity;
+	int speed;
+public:
+	bus() :capacity(0), speed(0) {}
+	bus(int c, int s) :capacity(c), speed(s) {}
+	bus operator+(_bus b1)
+	{
+		bus b2;
+		b2.capacity = capacity + b1.capacity;
+		b2.speed = speed + b1.speed;
+		return b2;
+	}
+	void print()
+	{
+		cout << capacity << ", " << speed;
+	}
+};
+int main()
+{
+	bus b1(2, 3), b2(3, 4);
+	bus b3 = b1 + b2;
+    b3.print();
+    system(pause);
+    return 0;
+}
