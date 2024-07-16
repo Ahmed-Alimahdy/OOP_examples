@@ -4,7 +4,7 @@ class bus
 public:
 	bus() :capacity(0), speed(0) {}
 	bus(int c, int s) :capacity(c), speed(s) {}
-	bus operator+(_bus b1)
+	bus operator+(bus b1)
 	{
 		bus b2;
 		b2.capacity = capacity + b1.capacity;
