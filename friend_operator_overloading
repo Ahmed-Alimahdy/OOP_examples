@@ -1,0 +1,15 @@
+riend_operator operator +(int x, friend_operator y)
+{
+	y.x += x;
+	y.y += x;
+	return y;
+}
+
+int main()
+{
+	friend_operator o, v(10, 20);
+	o = 10 + v;
+	o.print();
+    system("pause")
+    return 0;
+}
