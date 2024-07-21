@@ -1,0 +1,39 @@
+class company
+{
+	int id_tax;
+	int opening_day;
+protected:
+	string name;
+public:
+	company(int i = 0, int o = 0) :id_tax(i), opening_day(o) {}
+};
+class A21 :company
+{ 
+	
+protected:
+	string manufactor;
+public:
+	int model;
+	company::name;
+	A21()
+	{
+		manufactor = name;
+	}
+	void set_model(int m = 0)
+	{
+		model = m;
+	}
+};
+class A34 :public A21
+{
+	int cameras;
+public:
+};
+void main()
+{
+	A34 n;
+	A21 m(32);
+	n.set_model(5);
+	m.set_model(99);
+	cout << n.model<<" " <<m.model ;
+}
