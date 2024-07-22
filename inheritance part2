@@ -1,0 +1,43 @@
+class club
+{
+	string name;
+protected:
+	int opening_date;
+	club(int o,string n="6_october")
+	{
+		opening_date = o;
+		name = n;
+		cout << name << " has been built in " << o<<'\n';
+    }
+	club()
+	{
+
+	}
+};
+class sport1 :public club
+{
+	int joining_date;
+	int name;
+public:   //the derived class call the base class costructor until if the costructor protected
+	sport1(int i,string n="no name") :club(i)
+	{
+		cout << "the "<<n <<" has been joined to the club in "<<i << '\n';
+	}
+};
+class sport2 :public club, public sport1 //base -> derived
+{
+	int joining_date;
+	int name;
+public:                                  //the priority of calling constructors (base -> derived) if both of them are base (->)
+	sport2(int i, string n) : sport1(i), club(i)
+		                                         //to call derived class constructor it must be an empty constructor in base class at least
+	{
+		cout << "the " << n << " has been joined to the club in " << i << '\n';
+	}
+};
+int main()
+{
+	sport1 foot(2003, "football");
+	sport2 basket(2004, "basket ball");
+    return 0;
+}
