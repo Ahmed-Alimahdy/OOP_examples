@@ -1,0 +1,56 @@
+class color
+{
+protected:
+	int r;
+	int g;
+	int b;
+public:
+	void set_color(int x, int y, int z)
+	{
+		r = x;
+		g = y;
+		b = z;
+	}
+	virtual void print()  //when removing (virtual) the pointers call this function only
+	{
+		if (r > max(b, g))
+			cout << "red"<<'\n';
+		else if (b > max(r, g))
+			cout << "blue"<<'\n';
+		else
+			cout << "green"<<'\n';
+	}
+};
+class red :public color
+{
+public:
+	void print()
+	{
+		cout << "red"<<'\n';
+	}
+};
+class green :public color
+{
+public:
+	void print()
+	{
+		cout << "green" << '\n';
+	}
+};
+int main()
+{
+	color* p1, * p2, * p3; //access to color member but virtual make the pointers access to member functions of other classes with the same name
+	color c;
+	red r;
+	green g;
+	p1 = &c;
+	p2 = &r;
+	p3 = &g;
+	p1->set_color(232, 123, 233);
+	p1->print();
+	p2->set_color(234, 412, 324); //no_effect
+	p2->print();
+	p1->print();
+	p3->print();
+    return 0;
+}
