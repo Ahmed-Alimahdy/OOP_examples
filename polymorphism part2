@@ -1,0 +1,43 @@
+class polygon //abstract class
+{   //abstract class cannot call objects nly pointers
+protected:
+	int height, width;
+public:
+	void set_values(int h, int w)
+	{
+		width = w; 
+		height = h;
+	}
+	virtual void area() = 0;
+};
+class rectangle :public polygon
+{
+public:
+	void area() //return type of virtual must be = the return type of derived function
+	{
+		cout<< width * height<<'\n';
+	}
+};
+class triangle :public polygon
+{
+public:
+	void area() //return type of virtual must be = the return type of derived function
+	{
+		cout << width * height / 2 << '\n';
+	}
+};
+int main()
+{
+	rectangle rect;
+	triangle trig;
+	polygon* p[2] = { &rect,&trig };
+	p[0]->set_values(10, 20);
+	p[1]->set_values(10, 20);
+	p[0]->area();
+	p[1]->area(); //early binding
+	for (int i = 0;i < 2;i++)
+	{
+		p[i]->area();  //late binding
+	}
+return 0;
+}
